@@ -1,0 +1,91 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "stdlib.h"
+
+using namespace std;
+
+//protoripo de funciones
+float poten(float base,float expo);
+int factorial(int n);
+float serie (int X, int N);
+
+void main()
+{float pot,base,facto,s;
+ int opcion, expo,n;
+ //inicio del menu
+ do
+ {cout<<"--------- Menu --------- \n";
+  cout<<"1) Potencia \n ";
+  cout<<"2) Factorial \n ";
+  cout<<"3) Serie \n";
+  cout<<"0) salir \n";
+  cout<<"Opcion; ";
+  cin>>opcion;
+  switch(opcion)
+  {
+  case 1: {
+	        cout<<"Ingrese el valor de la base: ";
+			cin>>base;
+			cout<<"Ingrese el valor dedel exponente: ";
+			cin>>expo;
+			pot=poten(base,expo);
+			cout<<"La potencia de "<<base<<"elevado a:"<<expo<< "es:"<<pot;
+			break;
+		  }
+  case 2:{
+	      cout<<"Ingrese el valor de n: ";
+		  cin>>n;
+		  facto=factorial(n);
+		  cout<<"el factorial de "<< n <<"es:"<<facto;
+		  break;
+		  }
+  case 3:{ cout<<"Ingrese el valor de X: ";
+			cin>> base;
+            cout<<"Ingrese el valor de Y: ";
+			cin>> expo;
+			s= serie(base,expo); // Llamada a serie
+			cout << "La suma de la serie es:  "<< s;
+			break; 
+		 }
+		case 0:{
+				cout<<"salir\n";
+				break;
+			   }
+		default: 
+				cout<<"Opcion invalida";
+	}
+	getch();
+	system("cls"); // Limpia la pantalla
+  }	while(opcion!=0); // mientras sea opción diferente de 0
+
+ getch();
+}
+  
+  // funciones
+  float poten(float base,float expo)
+  {float s;
+   s=1;
+   for(int i=1;i<=expo;i++)
+   {s=s*base;
+   } 
+   return s;
+  }
+
+  int factorial(int n)
+  {int i,s,fac;
+  fac=1;
+   for(i=2;i<=n;i++)
+   {fac=fac*i;
+   }
+  return fac;
+  }
+
+float serie (int X, int N)
+{
+	float S=0; // Acumulador de Suma
+	for (int i=1;i<=N;i++) // i es contador
+	    S=S+poten(X,i)/factorial(i);
+	return S;
+}
+ 
