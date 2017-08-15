@@ -1,0 +1,23 @@
+// practica de log.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+void main()
+{int n,s=0;
+ do
+ {
+  cout<<"ingrese la cantidad de numero que desee sumar: ";
+  cin>>n;
+ }while (n<=0);
+
+ for(int i=1;i<=n;i=i+4)
+	s=s+i;
+    cout<<"la suma es: " << s;
+
+ getch();
+}
