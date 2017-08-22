@@ -1,0 +1,48 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+
+using namespace std;
+//Prototipos 
+
+int fac(int N);
+int Combi(int n,int r);
+
+void main()
+{
+	int n,r,C;
+	do{
+		cout<< "Introduce un valor para r mayor a cero: ";
+		cin>> r;
+	}while (r<0);
+
+	do{
+		cout<< "Introduce un valor para n mayor a cero y mayor a 'r' ";
+		cin>> n;
+	}while (n<0 && n<r);
+
+	C = Combi(n,r);
+	cout<< "la combinatoria de: "<<n<<" y "<<r<<" es: "<<C;
+	getch();
+}
+
+//Funciones:
+
+int fac(int N)
+{int f=1;
+	
+ for (int i=1; i<=n; i++)
+  f=f*i;
+	
+ return f;
+}
+
+int Combi(int n,int r)
+{int com;
+	
+	com = fac(n)/(fac(r)*fac(n-r));
+
+	return com;
+}
